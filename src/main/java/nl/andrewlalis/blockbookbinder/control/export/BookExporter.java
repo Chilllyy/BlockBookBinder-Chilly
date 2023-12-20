@@ -26,7 +26,7 @@ import java.util.logging.Logger;
  * into one's clipboard and pasting the pages.
  */
 public class BookExporter implements Runnable {
-	private final static int START_DELAY = 10;
+	private final static int START_DELAY = 3;
 	private final static int CLIPBOARD_RETRY_DELAY_MS = 100;
 
 	private final Book book;

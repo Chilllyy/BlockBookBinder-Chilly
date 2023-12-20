@@ -56,7 +56,7 @@ public class ExportToBookDialog extends JDialog {
 		this.autoCheckbox = new JCheckBox("Auto-paste", true);
 		this.firstPageSpinner = new JSpinner(new SpinnerNumberModel(1, 1, this.book.getPageCount(), 1));
 		this.lastPageSpinner = new JSpinner(new SpinnerNumberModel(this.book.getPageCount(), 1, this.book.getPageCount(), 1));
-		this.autoPasteDelaySpinner = new JSpinner(new SpinnerNumberModel(0.2, 0.1, 5.0, 0.1));
+		this.autoPasteDelaySpinner = new JSpinner(new SpinnerNumberModel(0.01, 0.01, 5.0, 0.01));
 
 		JComponent[] fields = {autoCheckbox, firstPageSpinner, lastPageSpinner, autoPasteDelaySpinner};
 		GridBagConstraints c = new GridBagConstraints();
@@ -95,7 +95,7 @@ public class ExportToBookDialog extends JDialog {
 			}
 			int choice = JOptionPane.showConfirmDialog(
 					this.rootPane,
-					"Exporting will begin after roughly 10 seconds.\n" +
+					"Exporting will begin after roughly 3 seconds.\n" +
 							"If you have selected \"Auto-paste\", then place\n" +
 							"your mouse cursor over the right arrow of the book\n" +
 							"so that BlockBookBinder can automatically click it.\n\n" +
