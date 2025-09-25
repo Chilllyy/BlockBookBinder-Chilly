@@ -171,6 +171,9 @@ public class BookExporter implements Runnable {
 		this.robot.keyRelease(KeyEvent.VK_CONTROL);
 		this.addStatusMessage("Pasted page into book.");
 		this.robot.mousePress(MouseEvent.BUTTON1_DOWN_MASK);
+		Point cursorLocation = MouseInfo.getPointerInfo().getLocation();
+		double x = cursorLocation.getX();
+		double y = cursorLocation.getY();
 		try {
 			Thread.sleep(this.autoPasteDelay);
 		} catch (InterruptedException e) {
@@ -178,6 +181,25 @@ public class BookExporter implements Runnable {
 		}
 		this.robot.mouseRelease(MouseEvent.BUTTON1_DOWN_MASK);
 		try { // Wait for minecraft to turn the page.
+			Thread.sleep(this.autoPasteDelay);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.robot.mouseMove((int) x, (int) (y - 100));
+		try { //Wait for mouse to move
+			Thread.sleep(this.autoPasteDelay);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.robot.mousePress(MouseEvent.BUTTON1_DOWN_MASK);
+		try { //Wait for mouse to click
+			Thread.sleep(this.autoPasteDelay);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.robot.mouseRelease(MouseEvent.BUTTON1_DOWN_MASK);
+		this.robot.mouseMove((int) x, (int) y);
+		try { //Wait for mouse to move back
 			Thread.sleep(this.autoPasteDelay);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
